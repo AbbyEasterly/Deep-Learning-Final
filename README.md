@@ -22,4 +22,5 @@ To begin, we begin data collection and processing. First, the data was found via
 With the dictionary created and the database of tweets uploaded, we then began cleaning the tweet text, removing things like usernames, punctuation, and urls from the strings and making all letters lowercase. We then split the string into words and created an aray of corresponding numeric values for each word (for example: "I have a kind and funny friend" becomes [0, 0, 0, 2, 0, 4, 1]). 
 
 ### Part 2: CNN Modelling
+We created a CNN model with the encoded tweets being the input (tokenized and processed for model) and the label as output. Linear layers were used to flatten and classify data. We followed this with ReLU layers for nonlinear feature extraction. Dropout prevents overfitting in the model, and finally the output was calculated with softmax, with 3 possible outputs: 0 (neutral) 1 (Offensive) or 2 (hate speech)
 
