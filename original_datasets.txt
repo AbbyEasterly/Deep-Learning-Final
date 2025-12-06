@@ -1,0 +1,11 @@
+data is collected in our dictionary .csv, but the original datasets are found here:
+
+https://raw.githubusercontent.com' '/fnielsen/afinn/master/afinn/data/AFINN-emoticon-8.txt
+
+https://raw.githubusercontent.com' '/fnielsen/afinn/master/afinn/data/AFINN-en-165.txt
+
+https://www.kaggle.com/datasets/rtatman/english-word-frequency
+
+python library:
+from datasets import load_dataset
+mmathys/profanity
