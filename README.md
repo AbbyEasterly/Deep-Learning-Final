@@ -29,6 +29,18 @@ Linear layers flatten and classify the data, with ReLU layers for nonlinear feat
 The model was trained for 15 epochs using the Adam optimizer with a learning rate of 0.001 and cross-entropy loss. We used a 70/15/15 split for training, validation, and testing.
 
 ## Results and Conclusion
+After training the model, we we had the following results:
+
+<img width="509" height="372" alt="image" src="https://github.com/user-attachments/assets/b4870af4-73c0-45de-938b-e9b9facc7d94" />
+
+
+
 The model’s classification report gives it a 90% accuracy score overall. It is able to detect inputs under three classes: Hate Speech, Offensive, and Neither. When detecting Hate Speech, the model predicted Hate Speech at 45% precision. This means that it does struggle with detecting such things overall, especially with a 0.2 recall. When detecting Offensive, the model predicted it at 94% precision and recall, thus making it very good at seeing these two things. Since a tweet being Offensive is more obvious than it being Hate Speech, this makes sense. Finally, when detecting Neither, the model predicted at 0.78, with 0.9 recall. This means it detected most cases of the tweet being neither Offensive nor Hate Speech.
 
+**Example Inputs:**
+
+<img width="433" height="432" alt="image" src="https://github.com/user-attachments/assets/982dd7b5-2766-45a0-b99d-a761cb1cee1d" />
+
 The first demo was a good example of the model detecting something offensive, and it did so at 98%. The second demo could have been veiled hate speech, but with no reference to a particular group, the model classed it as offensive. However, this was only at 54%, with there being an additional 45% chance of it being hate speech. The final one was accurately predicted as neither at an 86% chance.
+
+
