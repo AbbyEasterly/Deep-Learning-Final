@@ -24,3 +24,4 @@ With the dictionary created and the database of tweets uploaded, we then began c
 ### Part 2: CNN Modelling
 We created a CNN model with the encoded tweets being the input (tokenized and processed for model) and the label as output. Linear layers were used to flatten and classify data. We followed this with ReLU layers for nonlinear feature extraction. Dropout prevents overfitting in the model, and finally the output was calculated with softmax, with 3 possible outputs: 0 (neutral) 1 (Offensive) or 2 (hate speech)
 
+## Results and Conclusion
