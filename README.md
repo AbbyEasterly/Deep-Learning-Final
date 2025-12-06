@@ -6,6 +6,16 @@
  ### Introduction
  With social media platforms that require no identity verification, individuals can create fake or anonymous accounts and spread negative ideas or hate speech to other users with little to no consequences. To help negate bullying and harassment online, this program will use text data and neural networks to process statements made online and hide them from other users or even prevent the post from remaining on the platform. 
 
+## Running instructions
+
+We created this project in kaggle. To view it in its best form, go to:
+
+https://www.kaggle.com/code/abby614/final-project
+
+If kaggle is not available, or using another application, use the dictionary, dataset, and the .ipbyn above 
+
+## Process:
+
  ### Part 1: Data Collection and Processing
 To begin, we begin data collection and processing. First, the data was found via Kaggle, where a database with tweets had already been collected and labeled as 0 - neutral, 1-negative, or 2-hateful. From this, we focused on developing a dictionary to label words numerically based on their sentiment (positive or negative). We found svveral datasets, including lists of harmful words, emojis, and general frequently used words, found on kaggle, githu, and the huggingface library. Since we did not simply want to mark a tweet as hateful wimply because of a word being present, we added the commonly used words and marked them as neutral so we could train on those words as well. We then applied our own scoring system to words, ranking words marked as positive on a scale from 1-5, 1 being slightly positive (ex: 'pretty', 'support', 'warm') and 5 being most positive (ex: 'outstanding', 'superb', 'breathtaking'), then neutral words as 0 (ex: "the", "car", "hello"). We also ranked negative word similar to the postive words, with -1 being somewhat negative (ex: 'suspect', 'leak', 'unsettled') and -5 being very negative (ex: swears, etc.). Instead of using -1:-5 for negative words, we also added -6 for slurs or violent words, intending to act as a "blacklist", or words that should immediately indicate hate speech and be flagged by the model. We created the range as we did not want tweets with negative words to be immediately flagged, like the phrase "I hate plastic plants" that is not hateful but instead an opinion, so this gives more room for the model to learn the difference between hate and negativity. 
 
