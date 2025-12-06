@@ -22,6 +22,10 @@ To begin, we begin data collection and processing. First, the data was found via
 With the dictionary created and the database of tweets uploaded, we then began cleaning the tweet text, removing things like usernames, punctuation, and urls from the strings and making all letters lowercase. We then split the string into words and created an aray of corresponding numeric values for each word (for example: "I have a kind and funny friend" becomes [0, 0, 0, 2, 0, 4, 1]). 
 
 ### Part 2: CNN Modelling
-We created a CNN model with the encoded tweets being the input (tokenized and processed for model) and the label as output. Linear layers were used to flatten and classify data. We followed this with ReLU layers for nonlinear feature extraction. Dropout prevents overfitting in the model, and finally the output was calculated with softmax, with 3 possible outputs: 0 (neutral) 1 (Offensive) or 2 (hate speech)
+We created a Convolutional Neural Network (CNN) that combines word embeddings with our sentiment dictionary scores. First, we built a vocabulary from all tweets, mapping each unique word to a numeric ID. Each tweet is then converted into two parallel representations: word IDs (for the embedding layer) and sentiment scores (from our dictionary). The model architecture converts word IDs into 64-dimensional vectors that capture word meaning and context. It then uses our dictionary scores as an additional input channel, so the model doesn't have to learn from scratch which words are positive or negative. Three convolutional filters (sizes 2, 3, and 4) slide across the tweet to detect specific patterns (e.g., "you are stupid" or "go back to").
+
+Linear layers flatten and classify the data, with ReLU layers for nonlinear feature extraction. Dropout (50%) prevents overfitting in the model. Finally, the output is calculated with softmax, which combines all features for final classification, with 3 possible outputs: 0 (Hate Speech), 1 (Offensive), or 2 (Neither).
+
+The model was trained for 15 epochs using the Adam optimizer with a learning rate of 0.001 and cross-entropy loss. We used a 70/15/15 split for training, validation, and testing.
 
 ## Results and Conclusion
